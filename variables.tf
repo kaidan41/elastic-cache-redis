@@ -1,5 +1,6 @@
 variable "name_prefix" {
   type        = string
+  default = "redisaws"
   description = "The replication group identifier. This parameter is stored as a lowercase string."
 }
 
@@ -18,16 +19,19 @@ variable "cluster_mode_enabled" {
 variable "node_type" {
   type        = string
   description = "The compute and memory capacity of the nodes in the node group."
+  default = "t2.micro"
 }
 
 variable "subnet_ids" {
   type        = list(string)
   description = "List of VPC Subnet IDs for the cache subnet group."
+  default = [ "subnet-05db9efe048526705, subnet-002bb5f40587826a4" ]
 }
 
 variable "vpc_id" {
   type        = string
   description = "VPC Id to associate with Redis ElastiCache."
+  default = "vpc-09afb995a99eb7667"
 }
 
 variable "ingress_cidr_blocks" {
@@ -61,13 +65,13 @@ variable "port" {
 }
 
 variable "maintenance_window" {
-  default     = ""
+  default     = "tue:06:30-tue:07:30"
   type        = string
   description = "Specifies the weekly time range for when maintenance on the cache cluster is performed."
 }
 
 variable "snapshot_window" {
-  default     = ""
+  default     = "01:00-02:00"
   type        = string
   description = "The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster."
 }
@@ -128,7 +132,7 @@ variable "tags" {
 variable "auth_token" {
   type        = string
   description = "The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`."
-  default     = ""
+  default     = "Cau91839e2026776899000000002#!"
 }
 
 variable "kms_key_id" {
