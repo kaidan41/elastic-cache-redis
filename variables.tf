@@ -19,13 +19,13 @@ variable "cluster_mode_enabled" {
 variable "node_type" {
   type        = string
   description = "The compute and memory capacity of the nodes in the node group."
-  default = "t2.micro"
+  default = "cache.t2.micro"
 }
 
 variable "subnet_ids" {
   type        = list(string)
   description = "List of VPC Subnet IDs for the cache subnet group."
-  default = [ "subnet-05db9efe048526705, subnet-002bb5f40587826a4" ]
+  default = [ "subnet-05db9efe048526705" ]
 }
 
 variable "vpc_id" {
@@ -192,7 +192,7 @@ variable "final_snapshot_identifier" {
 }
 
 variable "global_replication_group_id" {
-  description = "The ID of the global replication group to which this replication group should belong."
+  description = "tf-rep-group-1"
   type        = string
   default     = null
 }

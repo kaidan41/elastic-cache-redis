@@ -78,3 +78,8 @@ output "elasticache_port" {
   description = "The Redis port."
   value       = aws_elasticache_replication_group.redis.port
 }
+
+output "key_arn" {
+  description = "The arn of the key"
+  value       = aws_kms_key.a.arn
+}
